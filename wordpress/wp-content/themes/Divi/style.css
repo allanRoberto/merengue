@@ -10,6 +10,7 @@ License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 /* Browser Reset */
+@import url('css/font-awesome.min.css');
 @import url('style-theme.css');
 
 .et-fixed-header#main-header {
@@ -6398,7 +6399,7 @@ p.et_pb_gallery_caption {
 
 .et_pb_blurb h4 {
 	padding-bottom: 5px;
-	color : #225493;
+	color : #666;
 }
 
 .et_pb_blurb h4 a {
@@ -15763,6 +15764,16 @@ span.comment_date {
 	transition: background-color 0.5s ease;
 }
 
+#page-container {
+	padding-top : 0px !important;
+}
+
+.et_header_style_split #et-top-navigation nav > ul > li > a {
+	padding-bottom : 0px !important;
+}
 
 
-
+footer p.address {
+	color : #666;
+	margin-bottom : 20px;
+}

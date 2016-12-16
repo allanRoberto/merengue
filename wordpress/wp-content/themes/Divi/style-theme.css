@@ -1205,6 +1205,11 @@ nav a:hover:after {
     -webkit-transform: translate(0);
     transform: translate(0);
 }
+
+nav .logo_container a:hover:after,
+nav .logo_container a:hover:before {
+    content : none !important;
+}
 .headerActive {
     position: relative;
     color: #fec300;
@@ -1902,9 +1907,6 @@ header.scrolled {
     transition: all 150ms linear;
 }
 
-.contentShortcode:hover .h4 {
-    color: #fec300;
-}
 
 .desShortcode {
     max-width: 260px;
@@ -2257,7 +2259,7 @@ header.scrolled {
 }
 
 .phone span {
-    color: #6d3a2f;
+    color: #666;
     -webkit-transition: all 150ms linear;
     transition: all 150ms linear;
 }
@@ -2281,7 +2283,7 @@ header.scrolled {
 
 .footerSocial {
     font-size: 26px;
-    color: #6d3a2f;
+    color: #999;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2290,7 +2292,7 @@ header.scrolled {
 }
 
 .social:hover .footerSocial {
-    color: #fec300;
+    color: #225493;
 }
 
 .footerF {
@@ -2344,14 +2346,14 @@ header.scrolled {
 
 
 .inst span {
-    color: #6d3a2f;
+    color: #999;
     -webkit-transition: all 150ms linear;
     transition: all 150ms linear;
 }
 
 .inst:hover span,
 .phone:hover span {
-    color: #fec300;
+    color: #225493;
 }
 
 .instagram {

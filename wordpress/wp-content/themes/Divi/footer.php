@@ -1,37 +1,29 @@
         <div class="emptySpace35"></div>
         </div>
-        <div class="emptySpace80 emptySpace-xs40"></div>
+        <div class="emptySpace80 emptySpace-xs40" style="border-top : 1px solid #ccc; background : #fbfbfb;"></div>
         <footer>
-            <div class="bgWhite">
+            <div class="" style="background: #fbfbfb;">
                <div class="container">
                     <!-- Contacts -->
                     <h4 class="h4 contentShortcode"> 
-                        <a class="phone" href="tel:5557858965">Call Us Today: <span>555 785 8965</span></a>
+                        <p class="address">Endereço: Av Mal. Deodoro da Fonseca, nº 932, Pitangueiras - Guarujá , SP - Brasil</p>
+                        <a class="phone" href="tel:5557858965">Fale conosco: <span>(13) 3383-2923</span></a>
                     </h4>
                     <div class="emptySpace55 emptySpace-xs20"></div>
                     <!-- Social -->
                     <div class="contentShortcode">
-                        <h4 class="h4 follow">Follow us</h4>
+                        <h4 class="h4 follow">Siga-nos</h4>
                         <a class="social footerSocilaBg fb spin spin2" href="https://www.facebook.com/" target="_blank">
                         	<i class="fa fa-facebook footerSocial footerF"></i>
                         </a>
                         <a class="social footerSocilaBg tw spin spin2" href="https://twitter.com" target="_blank">
                         	<i class="fa fa-twitter footerSocial footerTw"></i>
                         </a>
-                        <a class="social footerSocilaBg gl spin spin2" href="https://plus.google.com/" target="_blank">
-                        	<i class="fa fa-google-plus footerSocial footerGl"></i>
-                        </a>
-                        <a class="social footerSocilaBg pi spin spin2" href="https://www.pinterest.com/" target="_blank">
-                        	<i class="fa fa-pinterest-p footerSocial footerPi"></i>
-                        </a>
-                        <a class="social footerSocilaBg in spin spin2" href="https://www.linkedin.com/" target="_blank">
-                        	<i class="fa fa-linkedin footerSocial footerIn"></i>
-                        </a>
                     </div>
                     <div class="emptySpace45 emptySpace-xs20"></div>
                     <!-- Instagram -->
                     <h4 class="h4 contentShortcode">
-                        <a class="inst" href="https://www.instagram.com" target="_blank">Join us on instagram: <span>#invisiocakes</span></a>
+                        <a class="inst" href="https://www.instagram.com" target="_blank">Nosso instagram: <span>@sorveteriamerengue</span></a>
                     </h4>   
                     <div class="emptySpace25"></div>
                     <!-- Instagram-Images -->
@@ -48,7 +40,7 @@
                     <div class="emptySpace55 emptySpace-xs20"></div>
                     <!-- Copy -->
                     <div class="copy">
-                        <p>© Invisio Cakes. All rights reserved.</p>
+                        <p>Desenvolvido por <a href="http://saintpaulcomunicacao.com.br" target="_BLANK">SaintPaul Comunicação.</a></p>
                     </div>   
                </div>
             </div>
