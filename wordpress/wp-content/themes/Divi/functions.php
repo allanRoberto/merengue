@@ -211,7 +211,7 @@ function et_add_mobile_navigation(){
 					<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
 				</div>
 			</div>',
-			esc_html__( 'Select Page', 'Divi' )
+			esc_html__( 'Menu', 'Divi' )
 		);
 	}
 }

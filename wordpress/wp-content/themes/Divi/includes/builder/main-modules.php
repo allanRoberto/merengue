@@ -7826,7 +7826,7 @@ class ET_Builder_Module_Portfolio extends ET_Builder_Module {
 				}
 
 				// Get thumbnail
-				$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
+				$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'full' );
 
 				// Append value to query post
 				$query->posts[ $post_index ]->post_permalink 	= get_permalink();
@@ -11993,7 +11993,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				$classtext      = 'on' === $args['fullwidth'] ? 'et_pb_post_main_image' : '';
 				$titletext      = get_the_title();
 				$thumbnail      = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
-				$thumb          = $thumbnail["thumb"];
+				$thumb          = $thumbnail["full"];
 				$no_thumb_class = '' === $thumb || 'off' === $args['show_thumbnail'] ? ' et_pb_no_thumb' : '';
 
 				$post_format = et_pb_post_format();
@@ -12031,7 +12031,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								elseif ( '' !== $thumb && 'on' === $args['show_thumbnail'] ) :
 									if ( 'on' !== $args['fullwidth'] ) echo '<div class="et_pb_image_container">'; ?>
 										<a href="<?php esc_url( the_permalink() ); ?>" class="entry-featured-image-url">
-											<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
+										<?php the_post_thumbnail( 'full' );?>
+											<?php print_thumbnail( 'full', false, $titletext, $width, $height ); ?>
 											<?php if ( 'on' === $args['use_overlay'] ) {
 												echo $overlay_output;
 											} ?>
@@ -12044,7 +12045,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 						<?php if ( 'off' === $args['fullwidth'] || ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) { ?>
 							<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-								<h2 class="entry-title"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h2>
+								
 							<?php } ?>
 
 							<?php
@@ -12097,54 +12098,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								// reset all the attributes required to properly generate the internal styles
 								ET_Builder_Element::clean_internal_modules_styles();
 
-								echo '<div class="post-content">';
-
-								if ( 'on' === $args['show_content'] ) {
-									global $more;
-
-									// page builder doesn't support more tag, so display the_content() in case of post made with page builder
-									if ( et_pb_is_pagebuilder_used( get_the_ID() ) ) {
-										$more = 1;
-
-										echo apply_filters( 'the_content', $post_content );
-
-									} else {
-										$more = null;
-										echo apply_filters( 'the_content', et_delete_post_first_video( get_the_content( esc_html__( 'read more...', 'et_builder' ) ) ) );
-									}
-								} else {
-									if ( has_excerpt() ) {
-										the_excerpt();
-									} else {
-										if ( '' !== $post_content ) {
-											// set the $et_fb_processing_shortcode_object to false, to retrieve the content inside truncate_post() correctly
-											$et_fb_processing_shortcode_object = false;
-											echo wpautop( et_delete_post_first_video( truncate_post( 270, false, '', true ) ) );
-											// reset the $et_fb_processing_shortcode_object to its original value
-											$et_fb_processing_shortcode_object = $global_processing_original_value;
-										} else {
-											echo '';
-										}
-									}
-								}
-
-								$et_fb_processing_shortcode_object = $global_processing_original_value;
-								// retrieve the styles for the modules inside Blog content
-								$internal_style = ET_Builder_Element::get_style( true );
-								// reset all the attributes after we retrieved styles
-								ET_Builder_Element::clean_internal_modules_styles( false );
-								$et_pb_rendering_column_content = false;
-								// append styles to the blog content
-								if ( $internal_style ) {
-									printf(
-										'<style type="text/css" class="et_fb_blog_inner_content_styles">
-											%1$s
-										</style>',
-										$internal_style
-									);
-								}
-
-								echo '</div>';
+								
 
 								if ( 'on' !== $args['show_content'] ) {
 									$more = 'on' == $args['show_more'] ? sprintf( ' <a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), esc_html__( 'read more', 'et_builder' ) )  : '';
@@ -12348,7 +12302,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				$classtext = 'on' === $fullwidth ? 'et_pb_post_main_image' : '';
 				$titletext = get_the_title();
 				$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
-				$thumb = $thumbnail["thumb"];
+				$thumb = $thumbnail["full"];
 
 				$no_thumb_class = '' === $thumb || 'off' === $show_thumbnail ? ' et_pb_no_thumb' : '';
 
@@ -12385,7 +12339,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					elseif ( '' !== $thumb && 'on' === $show_thumbnail ) :
 						if ( 'on' !== $fullwidth ) echo '<div class="et_pb_image_container">'; ?>
 							<a href="<?php esc_url( the_permalink() ); ?>" class="entry-featured-image-url">
-								<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
+							<?php the_post_thumbnail( 'full' );?>
 								<?php if ( 'on' === $use_overlay ) {
 									echo $overlay_output;
 								} ?>
@@ -12397,7 +12351,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 			<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) { ?>
 				<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-					<h2 class="entry-title"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></h2>
+					
 				<?php } ?>
 
 				<?php
@@ -12441,40 +12395,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						);
 					}
 
-					echo '<div class="post-content">';
-					global $et_pb_rendering_column_content;
-
-					$post_content = et_strip_shortcodes( et_delete_post_first_video( get_the_content() ), true );
-
-					$et_pb_rendering_column_content = true;
-
-					if ( 'on' === $show_content ) {
-						global $more;
-
-						// page builder doesn't support more tag, so display the_content() in case of post made with page builder
-						if ( et_pb_is_pagebuilder_used( get_the_ID() ) ) {
-							$more = 1;
-							echo apply_filters( 'the_content', $post_content );
-						} else {
-							$more = null;
-							echo apply_filters( 'the_content', et_delete_post_first_video( get_the_content( esc_html__( 'read more...', 'et_builder' ) ) ) );
-						}
-					} else {
-						if ( has_excerpt() ) {
-							the_excerpt();
-						} else {
-							echo wpautop( et_delete_post_first_video( truncate_post( 270, false, '', true ) ) );
-						}
-					}
-
-					$et_pb_rendering_column_content = false;
-
-					if ( 'on' !== $show_content ) {
-						$more = 'on' == $show_more ? sprintf( ' <a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), esc_html__( 'read more', 'et_builder' ) )  : '';
-						echo $more;
-					}
-
-					echo '</div>';
+					
 					?>
 			<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
@@ -12514,7 +12435,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		$class = " et_pb_module et_pb_bg_layout_{$background_layout}";
 
 		$output = sprintf(
-			'<div%5$s class="%1$s%3$s%6$s"%7$s>
+			'<div%5$s class="%1$s%3$s%6$s" data-columns="4">
 				%2$s
 			%4$s',
 			( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),

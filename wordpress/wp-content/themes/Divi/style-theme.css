@@ -38,6 +38,17 @@
 /* 02 - LOADER */
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
+@font-face {
+    font-family: 'Riffic Free';
+    src: url('fonts/RifficFree-Bold.eot');
+    src: url('fonts/RifficFree-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/RifficFree-Bold.woff') format('woff'),
+        url('fonts/RifficFree-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
 #loader-wrapper {
     position: fixed;
     left: 0;
@@ -398,11 +409,11 @@ body {
 .h4,
 .h5,
 .h6 {
-    font-family: 'Berkshire Swash', sans-serif;
+    font-family: 'Riffic Free';
     padding: 0px;
     margin: 0px;
     font-weight: 900;
-    color : #225493;
+    color : #3164D9;
 }
 
 .h1 {
@@ -819,6 +830,27 @@ body {
 }
 
 @media (max-width: 767px) {
+
+    .logo_container {
+        float : left;
+    }
+
+    #main-header {
+        display: table !important;
+        background : #1E4FC5 !important;
+    }
+
+    #et-top-navigation {
+      width :35% !important;
+      float : right !important;
+      font-family: 'Riffic Free';
+      text-transform: uppercase;
+    }
+
+    #et_mobile_nav_menu {
+     margin-top : 0px !important;
+    }
+
     .emptySpace-xs0 {
         height: 0;
     }
